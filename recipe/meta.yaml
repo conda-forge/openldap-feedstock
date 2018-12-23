@@ -27,6 +27,7 @@ requirements:
   host:
     - openssl
     - cyrus-sasl
+    - krb5
   run:
     - openssl
     - cyrus-sasl  
