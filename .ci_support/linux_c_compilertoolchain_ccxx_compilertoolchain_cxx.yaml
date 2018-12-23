@@ -6,6 +6,8 @@ channel_sources:
 - conda-forge,defaults
 channel_targets:
 - conda-forge main
+cxx_compiler:
+- toolchain_cxx
 docker_image:
 - condaforge/linux-anvil
 krb5:
@@ -19,6 +21,7 @@ pin_run_as_build:
     max_pin: x.x.x
 zip_keys:
 - - c_compiler
+  - cxx_compiler
   - channel_sources
   - channel_targets
   - docker_image
