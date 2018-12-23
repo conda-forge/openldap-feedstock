@@ -16,6 +16,7 @@ build:
     - {{ pin_subpackage('openldap', max_pin='x.x') }}
   script:
     # disable server components
+    - export CPPFLAGS="${CPP_FLAGS} -I$PREFIX/include "
     - ./configure --prefix=$PREFIX  --disable-slapd --disable-slurpd || { cat config.log; exit 1; }
     - make
     - make install 
