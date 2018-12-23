@@ -10,23 +10,26 @@ source:
   sha256: 9a90dcb86b99ae790ccab93b7585a31fbcbeec8c94bf0f7ab0ca0a87ea0c4b2d
 
 build:
-  number: 0
+  number: 1000
   skip: True  # [not unix]
   run_exports:
     - {{ pin_subpackage('openldap', max_pin='x.x') }}
   script:
     # disable server components
-    - ./configure --prefix=$PREFIX  --disable-slapd --disable-slurpd
+    - export CPPFLAGS="${CPP_FLAGS} -I$PREFIX/include "
+    - ./configure --prefix=$PREFIX  --disable-slapd --disable-slurpd || { cat config.log; exit 1; }
     - make
     - make install 
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - make
   host:
     - openssl
     - cyrus-sasl
+    - krb5
   run:
     - openssl
     - cyrus-sasl  
