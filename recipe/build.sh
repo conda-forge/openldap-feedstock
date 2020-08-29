@@ -7,7 +7,7 @@ echo $BUILD
     --prefix=$PREFIX  \
     --disable-slapd \
     --disable-slurpd \
-    --host=$HOST \
-    --build=$BUILD || { cat config.log; exit 1; }
+    --host=${HOST} \
+    --build=${BUILD} || { cat config.log; exit 1; }
 make
 make install
