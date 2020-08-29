@@ -14,12 +14,6 @@ build:
   skip: True  # [not unix]
   run_exports:
     - {{ pin_subpackage('openldap', max_pin='x.x') }}
-  script:
-    # disable server components
-    - export CPPFLAGS="${CPP_FLAGS} -I$PREFIX/include "
-    - ./configure --prefix=$PREFIX  --disable-slapd --disable-slurpd || { cat config.log; exit 1; }
-    - make
-    - make install 
 
 requirements:
   build:
@@ -33,7 +27,7 @@ requirements:
     - krb5
   run:
     - openssl
-    - cyrus-sasl  
+    - cyrus-sasl
 
 test:
   commands:
