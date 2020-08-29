@@ -21,6 +21,7 @@ requirements:
     - {{ compiler('cxx') }}
     - make
     - groff
+    - libtool
   host:
     - openssl
     - cyrus-sasl
