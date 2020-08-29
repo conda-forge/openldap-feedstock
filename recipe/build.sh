@@ -6,5 +6,5 @@ export CPPFLAGS="${CPP_FLAGS} -I$PREFIX/include "
     --prefix=$PREFIX  \
     --disable-slapd \
     --disable-slurpd || { cat config.log; exit 1; }
-make
+make -j${CPU_COUNT}
 make install
