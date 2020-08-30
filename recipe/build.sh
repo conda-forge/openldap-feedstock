@@ -1,5 +1,5 @@
 set -x
-export CPPFLAGS="${CPP_FLAGS} -I$PREFIX/include "
+export CPPFLAGS="${CPPFLAGS} -isystem $PREFIX/include "
 
 # disable server components
 ./configure \
