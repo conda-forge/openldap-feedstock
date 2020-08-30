@@ -1,5 +1,5 @@
 {% set name = "openldap" %}
-{% set version = "2.4.46" %}
+{% set version = "2.4.52" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,19 +7,13 @@ package:
 
 source:
   url: ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-{{ version }}.tgz
-  sha256: 9a90dcb86b99ae790ccab93b7585a31fbcbeec8c94bf0f7ab0ca0a87ea0c4b2d
+  sha256: 277b453f8e1593d759e6d6f4c8744f2042fa843e558f8e267f1c7890b8c35508
 
 build:
-  number: 1002
+  number: 0
   skip: True  # [not unix]
   run_exports:
     - {{ pin_subpackage('openldap', max_pin='x.x') }}
-  script:
-    # disable server components
-    - export CPPFLAGS="${CPP_FLAGS} -I$PREFIX/include "
-    - ./configure --prefix=$PREFIX  --disable-slapd --disable-slurpd || { cat config.log; exit 1; }
-    - make
-    - make install 
 
 requirements:
   build:
@@ -33,7 +27,7 @@ requirements:
     - krb5
   run:
     - openssl
-    - cyrus-sasl  
+    - cyrus-sasl
 
 test:
   commands:
