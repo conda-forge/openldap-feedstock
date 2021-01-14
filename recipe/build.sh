@@ -8,6 +8,7 @@ set -x
 ./configure \
     --prefix=$PREFIX  \
     --disable-slapd \
-    --disable-slurpd || { cat config.log; exit 1; }
+    --disable-slurpd \
+    --with-yielding_select=yes || { cat config.log; exit 1; }
 make -j${CPU_COUNT}
 make install
