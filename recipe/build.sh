@@ -10,5 +10,8 @@ set -x
     --disable-slapd \
     --disable-slurpd \
     --with-yielding_select=yes || { cat config.log; exit 1; }
+
+sed -i.bak 's|#define NEED_MEMCMP_REPLACEMENT 1|/* #undef NEED_MEMCMP_REPLACEMENT */|' include/portable.h
+
 make -j${CPU_COUNT}
 make install
