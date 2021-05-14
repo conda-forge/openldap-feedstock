@@ -10,7 +10,7 @@ source:
   sha256: 277b453f8e1593d759e6d6f4c8744f2042fa843e558f8e267f1c7890b8c35508
 
 build:
-  number: 0
+  number: 1
   skip: True  # [not unix]
   run_exports:
     - {{ pin_subpackage('openldap', max_pin='x.x') }}
