@@ -21,7 +21,7 @@ requirements:
     - {{ compiler('cxx') }}  # [unix]
     - {{ compiler('m2w64_c') }}  # [win]
     - make
-    - groff
+    - groff  # [unix]
   host:
     - openssl
     - cyrus-sasl
