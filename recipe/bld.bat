@@ -11,5 +11,5 @@ set ac_cv_func_memcmp_working=yes
     --disable-slapd \
     --disable-slurpd \
     --with-yielding_select=yes
-make -j${CPU_COUNT}
+make
 make install
