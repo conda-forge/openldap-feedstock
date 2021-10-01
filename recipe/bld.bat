@@ -5,7 +5,7 @@ copy %BUILD_PREFIX%\share\gnuconfig\config.* contrib\ldapc++
 set ac_cv_func_memcmp_working=yes
 
 # disable server components
-config --prefix=%LIBRARY_PREFIX%  --disable-slapd --disable-slurpd --with-yielding_select=yes
+./configure --prefix=%LIBRARY_PREFIX%  --disable-slapd --disable-slurpd --with-yielding_select=yes
 make depend
 make
 make install
