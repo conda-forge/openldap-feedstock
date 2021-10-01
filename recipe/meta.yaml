@@ -34,7 +34,7 @@ requirements:
 test:
   commands:
     - test $PREFIX/include/ldap.h   # [unix]
-    - if not exist %LIBRARY_INC%\ldap.H exit 1  # [win]
+    - if not exist %LIBRARY_INC%\ldap.h exit 1  # [win]
 
 about:
   home: https://www.openldap.org
