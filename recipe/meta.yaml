@@ -20,8 +20,7 @@ requirements:
     - {{ compiler('c') }}  # [unix]
     - {{ compiler('cxx') }}  # [unix]
     - {{ compiler('m2w64_c') }}  # [win]
-    - make  # [unix]
-    - m2w64-make  # [win]
+    - make
     - groff
   host:
     - openssl
