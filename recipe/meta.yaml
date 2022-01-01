@@ -1,8 +1,7 @@
-{% set name = "openldap" %}
 {% set version = "2.6.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: openldap
   version: {{ version }}
 
 source:
