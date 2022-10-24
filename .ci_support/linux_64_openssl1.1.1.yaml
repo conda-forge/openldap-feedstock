@@ -18,9 +18,6 @@ krb5:
 - '1.19'
 openssl:
 - 1.1.1
-pin_run_as_build:
-  krb5:
-    max_pin: x.x
 target_platform:
 - linux-64
 zip_keys:
