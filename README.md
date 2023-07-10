@@ -1,11 +1,11 @@
-About openldap
-==============
+About openldap-feedstock
+========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/openldap-feedstock/blob/main/LICENSE.txt)
 
 Home: https://www.openldap.org
 
 Package license: OLDAP-2.8
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/openldap-feedstock/blob/main/LICENSE.txt)
 
 Summary: OpenLDAP Software is an open source implementation of the Lightweight Directory Access Protocol.
 
