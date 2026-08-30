@@ -1,4 +1,4 @@
-{% set version = "2.6.13" %}
+{% set version = "2.7.0" %}
 
 package:
   name: openldap
@@ -6,11 +6,10 @@ package:
 
 source:
   url: https://openldap.org/software/download/OpenLDAP/openldap-release/openldap-{{ version }}.tgz
-  sha256: d693b49517a42efb85a1a364a310aed16a53d428d1b46c0d31ef3fba78fcb656
+  sha256: 9e86f37da375aa948a1b478dd76fe87b02090e47c21facae19223588e3407922
 
 build:
   number: 0
-  skip: true  # [not unix]
   run_exports:
     - {{ pin_subpackage('openldap', max_pin='x.x') }}
 
@@ -19,13 +18,13 @@ requirements:
     - gnuconfig  # [unix]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
-    - {{ compiler('cxx') }}
-    - make
-    - groff
+    - {{ compiler('cxx') }}  # [unix]
+    - make  # [unix]
+    - groff  # [unix]
   host:
     - openssl
     - cyrus-sasl
-    - krb5
+    - krb5  # [unix]
   run:
     - openssl
     - cyrus-sasl
@@ -33,6 +32,11 @@ requirements:
 test:
   commands:
     - test $PREFIX/include/ldap.h   # [unix]
+    - if not exist %LIBRARY_INC%\ldap.h exit 1  # [win]
+    - if not exist %LIBRARY_BIN%\libldap.dll exit 1  # [win]
+    - if not exist %LIBRARY_BIN%\liblber.dll exit 1  # [win]
+    - if not exist %LIBRARY_LIB%\libldap.lib exit 1  # [win]
+    - if not exist %LIBRARY_LIB%\liblber.lib exit 1  # [win]
 
 about:
   home: https://www.openldap.org
