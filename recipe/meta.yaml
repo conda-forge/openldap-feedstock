@@ -1,4 +1,4 @@
-{% set version = "2.6.13" %}
+{% set version = "2.7.2" %}
 
 package:
   name: openldap
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://openldap.org/software/download/OpenLDAP/openldap-release/openldap-{{ version }}.tgz
-  sha256: d693b49517a42efb85a1a364a310aed16a53d428d1b46c0d31ef3fba78fcb656
+  sha256: aad731aa22118ff327b9b4ddfc4b6f18ef9476586205da88a532e90940b523d2
 
 build:
   number: 0
